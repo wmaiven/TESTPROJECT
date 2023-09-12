@@ -3,7 +3,7 @@ import axios from 'axios';
 import './index.css';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import Home from '../../routes/home.jsx';
+import Home from '../../routes/Home.jsx';
 import Palindromo from '../../routes/palindromo.jsx';
 import Error from '../../routes/Error.jsx';
 //configurando router
