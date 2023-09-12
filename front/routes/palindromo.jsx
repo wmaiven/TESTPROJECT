@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import "./Palindromo.css"
 
 
 const Palindromo = () => {
@@ -38,17 +39,17 @@ const Palindromo = () => {
             </div>
             <div className="card-body">
                 <form onSubmit={handleSubmit} method="post" id="form">
-                    <label>numero1</label>
+                    <label>numero 1</label>
                     <input className="form-control" name="numero1" type="number" placeholder="digita o primeiro nuumero" value={numero1} onChange={handleChange1}/>
                     <br />
                     <br></br>
-                    <label>numero2</label>
+                    <label>numero 2</label>
                     <input className="form-control" name="numero2" type="number" placeholder="digite o segundo numero" value={numero2} onChange={handleChange2} />
                     <br></br>
                     <br />
                     <button type="submit">Enviar</button>
                 </form>
-                <div>
+                <div className="result-list">
                     {data != null? (<ul>
                                 {data.map((item, index) => (
                                     <li key={index}>{item}</li>

@@ -1,0 +1,67 @@
+/* Estilos para a página Palindromo */
+.container {
+    font-family: 'Gluten', cursive;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 4%;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ff0080, #eb8198); /* Gradiente vertical */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  input,
+  button {
+    text-align: center;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #5731c2;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #18005c;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    display: inline-block;
+    margin: 5px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #18005c;
+  }
+  

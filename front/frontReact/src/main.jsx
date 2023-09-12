@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Home from '../../routes/Home.jsx';
 import Palindromo from '../../routes/Palindromo.jsx';
+import Caixa from '../../routes/Caixa';
 import Error from '../../routes/Error.jsx';
 //configurando router
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
         {
           path: '/palindromo',
           element: <Palindromo />
-        }
+        },
+        {
+          path: '/caixa',
+          element: <Caixa />
+        },
     ]
   }
 ]);
