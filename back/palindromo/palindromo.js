@@ -1,18 +1,19 @@
-const palindromo = (numero1,numero2) => {
-        const array = [];
-        const arraycopia = [];
-        const resultado = [];
-    for (let i=0; i <= numero2;i++) {
-        array.push(i);
-        if (i > 10){
-            arraycopia[i] = parseInt(array[i].toString().split('').reverse().join(''));
-            if(arraycopia[i] === array[i]) {    
-                resultado.push(arraycopia[i]);
-            }
+const isPalindromo = (numero) => {
+    const numeroString = numero.toString();
+    const numeroReverso = numeroString.split('').reverse().join('');
+    return numeroString === numeroReverso;
+}
+
+const palindromo = (numero1, numero2) => {
+    const resultado = [];
+    for (let i = numero1; i <= numero2; i++) {
+        if (i>10){
+        if (isPalindromo(i)) {
+            resultado.push(i);
         }
     }
+    }
     return resultado;
-
 }
 
 module.exports = palindromo;

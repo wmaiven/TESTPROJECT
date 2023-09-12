@@ -1,7 +1,8 @@
 import React from 'react';
+import axios from 'axios';
+import './index.css';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import './index.css';
 import Home from '../../routes/home.jsx';
 import Palindromo from '../../routes/palindromo.jsx';
 import Error from '../../routes/Error.jsx';
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     errorElement: <Error/>,
     children: [
         {
-          path: '/home',
+          path: '/',
           element: <Home />
         },
         {
@@ -29,7 +30,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      <App />
     </RouterProvider>
   </React.StrictMode>,
 )
