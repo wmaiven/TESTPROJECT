@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-const palindromo = () => {
+const Palindromo = () => {
     const [numero1, setNumero1] = useState("");
     const [numero2, setNumero2] = useState("");
     const [data, setData] = useState(null);
@@ -61,4 +61,4 @@ const palindromo = () => {
   )
 }
 
-export default palindromo
+export default Palindromo
