@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const palindromo = require('./palindromo'); 
+const calcularTroco = require('./caixa'); 
 const cors = require('cors');
 router.use(cors());
 
 
 router.post('/caixa/post',  (req, res) =>{
-    let numero1 = parseInt(req.body.numero1);
-    let numero2 = parseInt(req.body.numero2);
-    let resultado = palindromo(numero1, numero2);
+    let valorCompra = parseInt(req.body.valorCompra);
+    let valorEntregue = parseInt(req.body.valorEntregue);
+    let resultado = calcularTroco(valorCompra, valorEntregue);
+    console.log(resultado);
     if(resultado === undefined || resultado === null){
         res.status(400)
     }else{
