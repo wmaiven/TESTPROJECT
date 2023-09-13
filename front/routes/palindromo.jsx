@@ -39,11 +39,11 @@ const Palindromo = () => {
             </div>
             <div className="card-body">
                 <form onSubmit={handleSubmit} method="post" id="form">
-                    <label>numero 1</label>
-                    <input className="form-control" name="numero1" type="number" placeholder="digita o primeiro nuumero" value={numero1} onChange={handleChange1}/>
+                    <label>Sequencia entre o número:</label>
+                    <input className="form-control" name="numero1" type="number" placeholder="digita o primeiro numero" value={numero1} onChange={handleChange1}/>
                     <br />
                     <br></br>
-                    <label>numero 2</label>
+                    <label>E o número:</label>
                     <input className="form-control" name="numero2" type="number" placeholder="digite o segundo numero" value={numero2} onChange={handleChange2} />
                     <br></br>
                     <br />
