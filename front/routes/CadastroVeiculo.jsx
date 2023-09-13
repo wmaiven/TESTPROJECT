@@ -2,14 +2,16 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const CadastroVeiculo = () => {
+  const [tipo, setTipo] = useState('')
   const [modelo, setModelo] = useState('');
   const [anoFabricacao, setAnoFabricacao] = useState('');
   const [portas, setPortas] = useState('');
   const [passageiros, setPassageiros] = useState('');
   const [marca, setMarca] = useState('');
   const [data, setData] = useState(null);
-
+  const [count, setCount] = useState();
   const handleChangeModelo = (event) => {
+    parseInt(event.target.value);
      setModelo(event.target.value);
   };
   const handleChangeAnoFabricacao = (event) => {
@@ -17,18 +19,32 @@ const CadastroVeiculo = () => {
  };
  const handleChangePortas = (event) => {
   setPortas(event.target.value);
-  };
+}
   const handleChangePassageiros = (event) => {
     setPassageiros(event.target.value);
   };
   const handleChangeMarca = (event) => {
     setMarca(event.target.value);
   };
-
+  const handleChangeTipo = (event) => {
+    if (portas === undefined || portas === null || portas === 0 || portas =="") {
+      setTipo("moto");
+      setCount(1);
+     }else{
+       setTipo("carro")
+       setPortas(event.target.value);
+     };
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     // Fazer a requisição POST para o backend com os dados do veículo
     axios.post('http://localhost:5172/criarVeiculo', {
+      tipo,
+      modelo,
+      anoFabricacao,
+      portas,
+      passageiros,
+      marca,
       modelo,
       anoFabricacao,
       portas,
@@ -64,20 +80,16 @@ const CadastroVeiculo = () => {
                     <input className="form-control" name="portas" type="text" placeholder="Digite o número de portas" value={portas} onChange={handleChangePortas} />
                     <br />
                     <label>Número de Passageiros:</label>
-                    <input className="form-control" name="passageiros" type="text" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros} />
+                    <input className="form-control" name="passageiros" type="text" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros}/>
                     <br />
                     <label>Marca:</label>
                     <input className="form-control" name="marca" type="text" placeholder="Digite a marca" value={marca} onChange={handleChangeMarca} />
                     <br />
-                    <button type="submit">Enviar</button>
+                    <button type="submit" onClick={handleChangeTipo}>Enviar</button>
                   </form>
-                {/* <div className="result-list">
-                    {data != null? (<ul>
-                                {data.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul> ): null}
-                </div> */}
+                <div className="result-list">
+                    {data != null? count >= 1?(<a href='#' onClick={console.log("a")}><button>mostrar veiculos cadastrados</button></a>): null: null}
+                </div> 
             </div>
         </div>
     </div>

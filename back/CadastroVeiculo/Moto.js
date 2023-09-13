@@ -1,19 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Moto = void 0;
+const dbVeiculos_1 = require("./db/dbVeiculos");
 class Moto {
     constructor(modelo, anoFabricacao, passageiros, marca) {
         this.QuantidadePortas = 0;
         this.Rodas = 2;
         this.Modelo = modelo;
         this.AnoFabricacao = anoFabricacao;
-        if (passageiros >= 1 && passageiros <= 2) {
-            this.Passageiros = passageiros;
-        }
-        else {
-            throw new Error("Quantidade de passageiros inválida para uma moto.");
-        }
+        this.Passageiros = passageiros;
         this.Marca = marca;
+    }
+    criarMoto(tipo, modelo, anoFabricacao, portas, passageiros, marca) {
+        dbVeiculos_1.dbveiculos.veiculos.moto.push({ tipo: tipo, modelo: modelo, anoFabricacao: anoFabricacao, portas: portas, passageiros: passageiros, marca: marca });
+        return new Moto(modelo, anoFabricacao, passageiros || 1, marca || '');
     }
 }
 exports.Moto = Moto;

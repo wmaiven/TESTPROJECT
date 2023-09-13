@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Home from '../../routes/Home.jsx';
 import Palindromo from '../../routes/Palindromo.jsx';
+import Veiculoscadastrados from '../../routes/Veiculoscadastrados.jsx';
 import CadastroVeiculo from '../../routes/CadastroVeiculo.jsx';
 import Caixa from '../../routes/Caixa';
 import Error from '../../routes/Error.jsx';
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           path: '/CadastroVeiculo',
           element: <CadastroVeiculo />
         },
+        {
+          path: '/Veiculoscadastrados',
+          element: <Veiculoscadastrados />
+        }
     ]
   }
 ]);

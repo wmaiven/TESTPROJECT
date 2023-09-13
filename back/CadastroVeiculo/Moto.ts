@@ -1,4 +1,5 @@
 import { Veiculo } from './Veiculo';
+import { dbveiculos } from './db/dbVeiculos';
 
 export class Moto implements Veiculo {
   Modelo: string;
@@ -11,11 +12,11 @@ export class Moto implements Veiculo {
   constructor(modelo: string, anoFabricacao: number, passageiros: number, marca: string) {
     this.Modelo = modelo;
     this.AnoFabricacao = anoFabricacao;
-    if (passageiros >= 1 && passageiros <= 2) {
-      this.Passageiros = passageiros;
-    } else {
-      throw new Error("Quantidade de passageiros inválida para uma moto.");
-    }
+    this.Passageiros = passageiros;
     this.Marca = marca;
-  }
+    }
+   criarMoto(tipo: string, modelo: string, anoFabricacao: number, portas?: number, passageiros?: number, marca?: string) {
+    dbveiculos.veiculos.moto.push({ tipo: tipo, modelo: modelo, anoFabricacao: anoFabricacao, portas: portas, passageiros: passageiros, marca: marca});
+    return new Moto(modelo, anoFabricacao, passageiros || 1 , marca || '');
+}
 }
