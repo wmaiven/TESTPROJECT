@@ -4,19 +4,19 @@ import "./Caixa.css"
 
 
 const Caixa = () => {
-    const [numero1, setNumero1] = useState("");
-    const [numero2, setNumero2] = useState("");
+    const [valorCompra, setvalorCompra] = useState("");
+    const [valorEntregue, setvalorEntregue] = useState("");
     const [data, setData] = useState(null);
     const handleChange1 = (event) => {
-        setNumero1(event.target.value);
+        setvalorCompra(event.target.value);
     };
     const handleChange2 = (event) => {
-        setNumero2(event.target.value);
+        setvalorEntregue(event.target.value);
     };
     const handleSubmit = (event) => {
         event.preventDefault();
         // Make the Axios POST request
-        axios.post('http://localhost:5172/palindromo/post', {numero1, numero2})
+        axios.post('http://localhost:5172/caixa/post', {valorCompra, valorEntregue})
             .then(response => {
                 if (response.data === undefined || response.data === null) {
                     console.log(data);
@@ -39,22 +39,38 @@ const Caixa = () => {
             </div>
             <div className="card-body">
                 <form onSubmit={handleSubmit} method="post" id="form">
-                    <label>numero1</label>
-                    <input className="form-control" name="numero1" type="number" placeholder="digita o primeiro nuumero" value={numero1} onChange={handleChange1}/>
+                    <label>Valor da compra:</label>
+                    <input className="form-control" name="valorCompra" type="number" placeholder="digita o primeiro nuumero" value={valorCompra} onChange={handleChange1}/>
                     <br />
                     <br></br>
-                    <label>numero2</label>
-                    <input className="form-control" name="numero2" type="number" placeholder="digite o segundo numero" value={numero2} onChange={handleChange2} />
+                    <label>Valor entregue:</label>
+                    <input className="form-control" name="valorEntregue" type="number" placeholder="digite o segundo numero" value={valorEntregue} onChange={handleChange2} />
                     <br></br>
                     <br />
                     <button type="submit">Enviar</button>
                 </form>
                 <div>
                     {data != null? (<ul>
-                                {data.map((item, index) => (
-                                    <li key={index}>{item}</li>
-                                ))}
-                            </ul> ): null}
+                        <table>
+                            <tr>
+                                <th>valor do troco:</th>
+                                <th>notas de 100:</th>
+                                <th>notas de 10:</th>
+                                <th>notas de 1:</th>
+                                <th>Valor da compra:</th>
+                                <th>Valor entregue:</th>
+                            </tr>
+                            <tr>
+                                <td>{data.troco}</td>
+                                <td>{data.notas100}</td>
+                                <td>{data.notas10}</td>
+                                <td>{data.notas1}</td>
+                                <td>{data.valorCompra}</td>
+                                <td>{data.valorEntregue}</td>
+                            </tr>
+                        </table>
+                        
+                    </ul>) : null}
                 </div>
             </div>
         </div>

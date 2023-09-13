@@ -1,11 +1,11 @@
-/* Estilos para a página Palindromo */
+/* Estilos para a página caixa */
 .container {
     font-family: 'Gluten', cursive;
     max-width: 600px;
     margin: 0 auto;
     margin-top: 4%;
     padding: 20px;
-    background: linear-gradient(to bottom, #ff0080, #eb8198); /* Gradiente vertical */
+    background: linear-gradient(to bottom, #ff0080, #eb8198); 
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
@@ -19,6 +19,8 @@
   
   .card-body {
     padding: 20px;
+    overflow-x: auto; /* Adicionado para rolagem horizontal se necessário */
+    box-sizing: border-box; 
   }
   
   form {
@@ -48,20 +50,32 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  button:hover {
-    background-color: #18005c;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  ul li {
-    display: inline-block;
-    margin: 5px;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #18005c;
-  }
-  
+  table {
+    width: calc(100% - 20px); /* Ajusta a largura da tabela para levar em conta o padding do card-body */
+    border-collapse: collapse;
+    margin-top: 20px; /* Espaçamento entre o formulário e a tabela */
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  color: #ff0080;
+}
+
+th {
+  background-color: #ff66b2; /* Rosa */
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #d9a7e0; /* Roxo mais claro */
+}
+
+tr:nth-child(odd) {
+  background-color: #a781d3; /* Roxo mais escuro */
+}
+
+tr:hover {
+  background-color: #80bfff; /* Azul claro */
+}
