@@ -1,5 +1,12 @@
 import { Carro } from './Carro';
 import { Moto } from './Moto';
 
-const meuCarro = new Carro("Sedan", 2020, 4, "Toyota");
-const minhaMoto = new Moto("Esportiva", 2021, 2, "Honda");
+export class VeiculosController {
+  criarCarro(modelo: string, anoFabricacao: number, portas: number, marca: string) {
+    return new Carro(modelo, anoFabricacao, portas, marca);
+  }
+
+  criarMoto(modelo: string, anoFabricacao: number, passageiros: number, marca: string) {
+    return new Moto(modelo, anoFabricacao, passageiros, marca);
+  }
+}
