@@ -1,14 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.VeiculosController = void 0;
-const Carro= require("./Carro");
-const Moto = require("./Moto");
-class VeiculosController {
-    criarCarro(modelo, anoFabricacao, portas, marca) {
-        return new Carro.Carro(modelo, anoFabricacao, portas, marca);
-    }
-    criarMoto(modelo, anoFabricacao, passageiros, marca) {
-        return new Moto.Moto(modelo, anoFabricacao, passageiros, marca);
-    }
-}
-exports.VeiculosController = VeiculosController;
+const express = require('express');
+const router = express.Router();
+const cors = require('cors');
+const { CriarVeiculos } = require( './CriarVeiculos');
+const app = express();
+
+const criarVeiculos = new CriarVeiculos();
+router.post('/criarVeiculo', (req, res) => {
+  const { tipo, modelo, anoFabricacao, portas, passageiros, marca } = req.body;
+
+  try {
+    const novoVeiculo = criarVeiculos.CriarVeiculo(tipo, modelo, anoFabricacao, portas, passageiros, marca);
+    res.json(novoVeiculo);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+
+module.exports = router;
