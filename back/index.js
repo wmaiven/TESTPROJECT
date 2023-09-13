@@ -5,7 +5,7 @@ const cors = require("cors");
 const palindromoController = require("./palindromo/palindromoController");
 const caixaController = require("./caixa/caixaController");
 const bodyParser = require('body-parser');
-const {VeiculosController}  = require('./CadastroVeiculo/VeiculosController.ts');
+const {VeiculosController}  = require('./CadastroVeiculo/VeiculosController.js');
 
 const veiculosController = new VeiculosController();
 const meuCarro = veiculosController.criarCarro("Sedan", 2020, 4, "Toyota");

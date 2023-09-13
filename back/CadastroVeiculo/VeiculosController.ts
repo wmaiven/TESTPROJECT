@@ -1,7 +1,7 @@
-import { Carro } from './Carro';
-import { Moto } from './Moto';
+const { Carro } = require('./Carro');
+const { Moto } = require ('./Moto');
 
-export class VeiculosController {
+module.exports = class VeiculosController {
   criarCarro(modelo: string, anoFabricacao: number, portas: number, marca: string) {
     return new Carro(modelo, anoFabricacao, portas, marca);
   }
@@ -10,3 +10,4 @@ export class VeiculosController {
     return new Moto(modelo, anoFabricacao, passageiros, marca);
   }
 }
+
