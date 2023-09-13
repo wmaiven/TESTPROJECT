@@ -9,7 +9,6 @@ const criarmoto = new Moto();
 
 router.post('/criarVeiculo', (req, res) => {
   const tipo = req.body.tipo.toString();
-  console.log(tipo);
   const modelo = req.body.modelo.toString();  
   const anoFabricacao = parseInt(req.body.anoFabricacao);
   const portas = parseInt(req.body.portas);

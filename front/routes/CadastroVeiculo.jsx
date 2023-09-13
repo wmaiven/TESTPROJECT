@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Veiculoscadastrados from './Veiculoscadastrados';
 
 const CadastroVeiculo = () => {
   const [tipo, setTipo] = useState('')
@@ -30,11 +31,15 @@ const CadastroVeiculo = () => {
     if (portas === undefined || portas === null || portas === 0 || portas =="") {
       setTipo("moto");
       setCount(1);
+      <Veiculoscadastrados data={data}/>
      }else{
+      setCount(1);
+      <Veiculoscadastrados data={data}/>
        setTipo("carro")
        setPortas(event.target.value);
      };
   };
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Fazer a requisição POST para o backend com os dados do veículo
@@ -52,7 +57,7 @@ const CadastroVeiculo = () => {
       marca, 
     })
       .then((response) => {
-        setData(response.data)
+        setData(response.data);
         console.log(data);
       })
       .catch((error) => {
@@ -74,22 +79,20 @@ const CadastroVeiculo = () => {
                     <input className="form-control" name="modelo" type="text" placeholder="Digite o modelo" value={modelo} onChange={handleChangeModelo} />
                     <br />
                     <label>Ano de Fabricação:</label>
-                    <input className="form-control" name="anoFabricacao" type="text" placeholder="Digite o ano de fabricação" value={anoFabricacao} onChange={handleChangeAnoFabricacao} />
+                    <input className="form-control" name="anoFabricacao" type="number" placeholder="Digite o ano de fabricação" value={anoFabricacao} onChange={handleChangeAnoFabricacao} />
                     <br />
                     <label>Número de Portas:</label>
-                    <input className="form-control" name="portas" type="text" placeholder="Digite o número de portas" value={portas} onChange={handleChangePortas} />
+                    <input className="form-control" name="portas" type="number" placeholder="Digite o número de portas" value={portas} onChange={handleChangePortas} />
                     <br />
                     <label>Número de Passageiros:</label>
-                    <input className="form-control" name="passageiros" type="text" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros}/>
+                    <input className="form-control" name="passageiros" type="number" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros}/>
                     <br />
                     <label>Marca:</label>
                     <input className="form-control" name="marca" type="text" placeholder="Digite a marca" value={marca} onChange={handleChangeMarca} />
                     <br />
                     <button type="submit" onClick={handleChangeTipo}>Enviar</button>
                   </form>
-                <div className="result-list">
-                    {data != null? count >= 1?(<a href='#' onClick={console.log("a")}><button>mostrar veiculos cadastrados</button></a>): null: null}
-                </div> 
+                    {/* {data != null? count >= 1?(<a href='/Veiculoscadastrados'><button>mostrar veiculos cadastrados</button></a>): null: null} */}        
             </div>
         </div>
     </div>
