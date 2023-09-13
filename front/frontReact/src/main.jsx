@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Home from '../../routes/Home.jsx';
 import Palindromo from '../../routes/Palindromo.jsx';
-import CadastroVeiculo from '../../routes/Login';
+import CadastroVeiculo from '../../routes/CadastroVeiculo.jsx';
 import Caixa from '../../routes/Caixa';
 import Error from '../../routes/Error.jsx';
 //configurando router
