@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link to="/palindromo">Palindromo</Link>
         <Link to="/caixa">Contador de Troco de caixa</Link>
         <Link to="/CadastroVeiculo">Cadastro de Veiculo</Link>
-
+        <Link to="/ConsultaCep">Consulta de CEP</Link>
     </nav>
   )
 }
