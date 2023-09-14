@@ -61,19 +61,19 @@ const ConsultaCep = () => {
         <div className="card-body">
               <form onSubmit={handleSubmit} method="post" id="form">
                 <label>CEP 1</label>
-                <input className="form-control" name="cep1" type="number" placeholder="Digite o modelo" value={cep1} onChange={handleCep1} />
+                <input className="form-control" name="cep1" type="number" placeholder="Digite o CEP 1" value={cep1} onChange={handleCep1} />
                 <br />
                 <label>CEP 2</label>
-                <input className="form-control" name="cep2" type="number" placeholder="Digite o ano de fabricação" value={cep2} onChange={handleCep2} />
+                <input className="form-control" name="cep2" type="number" placeholder="Digite o CEP 2" value={cep2} onChange={handleCep2} />
                 <br />
                 <label>CEP 3</label>
-                <input className="form-control" name="cep3" type="number" placeholder="Digite o número de portas" value={cep3} onChange={handleCep3} />
+                <input className="form-control" name="cep3" type="number" placeholder="Digite o CEP 3" value={cep3} onChange={handleCep3} />
                 <br />
                 <label>CEP 4</label>
-                <input className="form-control" name="cep4" type="number" placeholder="Digite o número de passageiros" value={cep4} onChange={handleCep4}/>
+                <input className="form-control" name="cep4" type="number" placeholder="Digite o CEP 4" value={cep4} onChange={handleCep4}/>
                 <br />
                 <label>CEP 5</label>
-                <input className="form-control" name="cep5" type="number" placeholder="Digite a marca" value={cep5} onChange={handleCep5} />
+                <input className="form-control" name="cep5" type="number" placeholder="Digite o CEP 5" value={cep5} onChange={handleCep5} />
                 <br />
                 <button type="submit">Enviar</button>
               </form>

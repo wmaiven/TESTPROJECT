@@ -35,6 +35,23 @@ const CadastroVeiculo = () => {
  
   const handleSubmit = async () => {
     event.preventDefault();
+      // Verificar se o tipo de veículo é moto e se tem mais de 2 passageiros
+      if (tipo === "moto" && parseInt(passageiros) > 2) {
+        alert("Moto só pode ter até 2 passageiros!");
+        return;
+      }
+
+      // Verificar se o tipo de veículo é carro e se tem mais de 4 passageiros
+      if (tipo === "carro" && parseInt(passageiros) > 4) {
+        alert("Carro só pode ter até 4 passageiros!");
+        return;
+      }
+
+      // Verificar se o tipo de veículo é carro e se tem menos de 2 ou mais de 4 portas
+      if (tipo === "carro" && (parseInt(portas) !== 2 && parseInt(portas) !== 4)) {
+        alert("Carro só pode ter 2 ou 4 portas!");
+        return;
+      }
     // Fazer a requisição POST para o backend com os dados do veículo
     await axios.post('http://localhost:5172/criarVeiculo', {
       tipo,
@@ -48,6 +65,7 @@ const CadastroVeiculo = () => {
         if(response.data !== undefined){
           setData(response.data);
         }
+
         console.log(data.dbveiculos.veiculos);
       })
       .catch((error) => {
@@ -72,10 +90,10 @@ const CadastroVeiculo = () => {
                     <input className="form-control" name="anoFabricacao" type="number" placeholder="Digite o ano de fabricação" value={anoFabricacao} onChange={handleChangeAnoFabricacao} />
                     <br />
                     <label>Número de Portas:</label>
-                    <input className="form-control" name="portas" type="number" placeholder="Digite o número de portas" value={portas} onChange={handleChangePortas} />
+                    <input className="form-control" name="portas" type="number" placeholder="Digite o número de portas" value={portas} onChange={handleChangePortas} max="4"/>
                     <br />
                     <label>Número de Passageiros:</label>
-                    <input className="form-control" name="passageiros" type="number" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros}/>
+                    <input className="form-control" name="passageiros" type="number" placeholder="Digite o número de passageiros" value={passageiros} onChange={handleChangePassageiros} max="4"/>
                     <br />
                     <label>Marca:</label>
                     <input className="form-control" name="marca" type="text" placeholder="Digite a marca" value={marca} onChange={handleChangeMarca} />
