@@ -16,7 +16,7 @@ app.use('/', VeiculosController);
 app.use('/', cepController);
 
 
-// Inicialização do servidor na porta 45679
+// Inicialização do servidor na porta 5172
 app.listen(5172, () => {
     console.log("APP RODANDO!");
 });
