@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+
 const ConsultaCep = () => {
     const[cep1, setCep1] = useState('');
     const[cep2, setCep2] = useState('');
@@ -76,6 +77,41 @@ const ConsultaCep = () => {
                 <br />
                 <button type="submit">Enviar</button>
               </form>
+              {data && (
+                        <div className="result">
+                            <h3>Resultados:</h3>
+                            <div className="result-tables">
+                                {data.map((cepData, index) => (
+                                    !cepData.error && (
+                                        <table key={index} className="result-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>CEP:</td>
+                                                    <td>{cepData.cep}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Logradouro:</td>
+                                                    <td>{cepData.logradouro}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bairro:</td>
+                                                    <td>{cepData.bairro}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Localidade:</td>
+                                                    <td>{cepData.localidade}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>UF:</td>
+                                                    <td>{cepData.uf}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    )
+                                ))}
+                            </div>
+                        </div>
+                    )}
         </div>
     </div>
 </div>

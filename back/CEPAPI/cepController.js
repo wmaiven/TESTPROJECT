@@ -17,7 +17,6 @@ router.post('/ConsultaCep/post', async (req, res) => {
         const resultadoCEP = await obterCEP(ceps[i]);
         data.push(resultadoCEP);
     }
-
     res.json(data);
 });
 
