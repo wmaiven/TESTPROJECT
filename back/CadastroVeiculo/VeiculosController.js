@@ -32,4 +32,7 @@ router.post('/criarVeiculo', (req, res) => {
   }
 });
 
+router.get('/mostrarveiculos',(req, res)  =>{
+  res.json(dbVeiculos);
+});
 module.exports = router;

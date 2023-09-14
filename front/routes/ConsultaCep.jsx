@@ -76,7 +76,6 @@ const ConsultaCep = () => {
                 <br />
                 <button type="submit">Enviar</button>
               </form>
-                {/* {data != null? count >= 1?(<a href='/Veiculoscadastrados'><button>mostrar veiculos cadastrados</button></a>): null: null} */}        
         </div>
     </div>
 </div>

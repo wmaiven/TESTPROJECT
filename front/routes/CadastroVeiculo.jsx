@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { useState } from 'react';
 import Veiculoscadastrados from './Veiculoscadastrados';
-
 const CadastroVeiculo = () => {
   const [tipo, setTipo] = useState('')
   const [modelo, setModelo] = useState('');
   const [anoFabricacao, setAnoFabricacao] = useState('');
-  const [portas, setPortas] = useState('');
+  const [portas, setPortas] = useState("");
   const [passageiros, setPassageiros] = useState('');
   const [marca, setMarca] = useState('');
   const [data, setData] = useState(null);
-  const [count, setCount] = useState();
+  const [validate, setValidate] = useState(false);
+
   const handleChangeModelo = (event) => {
     parseInt(event.target.value);
      setModelo(event.target.value);
@@ -28,28 +28,18 @@ const CadastroVeiculo = () => {
     setMarca(event.target.value);
   };
   const handleChangeTipo = (event) => {
-    if (portas === undefined || portas === null || portas === 0 || portas =="") {
+    if (portas === "null" || portas === undefined || portas === "0"|| portas === "") {
       setTipo("moto");
-      setCount(1);
-      <Veiculoscadastrados data={data}/>
      }else{
-      setCount(1);
-      <Veiculoscadastrados data={data}/>
-       setTipo("carro")
-       setPortas(event.target.value);
+       setTipo("carro");
      };
   };
  
-  const handleSubmit = (event) => {
+  const handleSubmit = async () => {
     event.preventDefault();
     // Fazer a requisição POST para o backend com os dados do veículo
-    axios.post('http://localhost:5172/criarVeiculo', {
+    await axios.post('http://localhost:5172/criarVeiculo', {
       tipo,
-      modelo,
-      anoFabricacao,
-      portas,
-      passageiros,
-      marca,
       modelo,
       anoFabricacao,
       portas,
@@ -58,7 +48,14 @@ const CadastroVeiculo = () => {
     })
       .then((response) => {
         setData(response.data);
-        console.log(data);
+        if(response.data !== undefined){
+          setValidate(true);
+          <Veiculoscadastrados validate={validate}/>
+        }
+        if(data.dbveiculos=== undefined || data.dbveiculos === null) {
+          handleSubmit();
+        }
+        console.log(data.dbveiculos.veiculos);
       })
       .catch((error) => {
         console.log(error);
@@ -92,10 +89,11 @@ const CadastroVeiculo = () => {
                     <br />
                     <button type="submit" onClick={handleChangeTipo}>Enviar</button>
                   </form>
-                    {/* {data != null? count >= 1?(<a href='/Veiculoscadastrados'><button>mostrar veiculos cadastrados</button></a>): null: null} */}        
+                  {data != undefined && data != null? (<a href='/Veiculoscadastrados'><button>Mostrar veicuos cadastrados</button></a>) :null}
             </div>
         </div>
     </div>
+
   );
 };
 

@@ -1,5 +1,5 @@
 import { Veiculo } from './Veiculo';
-import { dbveiculos } from './db/dbVeiculos';
+import { dbveiculos } from './db/dbVeiculos.js';
 
 export class Moto implements Veiculo {
   Modelo: string;
