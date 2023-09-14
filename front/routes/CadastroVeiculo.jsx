@@ -10,7 +10,6 @@ const CadastroVeiculo = () => {
   const [data, setData] = useState(null);
 
   const handleChangeModelo = (event) => {
-    parseInt(event.target.value);
      setModelo(event.target.value);
   };
   const handleChangeAnoFabricacao = (event) => {
