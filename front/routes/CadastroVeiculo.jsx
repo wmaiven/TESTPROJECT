@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useState } from 'react';
-import Veiculoscadastrados from './Veiculoscadastrados';
 const CadastroVeiculo = () => {
   const [tipo, setTipo] = useState('')
   const [modelo, setModelo] = useState('');
@@ -9,7 +8,6 @@ const CadastroVeiculo = () => {
   const [passageiros, setPassageiros] = useState('');
   const [marca, setMarca] = useState('');
   const [data, setData] = useState(null);
-  const [validate, setValidate] = useState(false);
 
   const handleChangeModelo = (event) => {
     parseInt(event.target.value);
@@ -46,14 +44,9 @@ const CadastroVeiculo = () => {
       passageiros,
       marca, 
     })
-      .then((response) => {
-        setData(response.data);
+      .then((response) => {  
         if(response.data !== undefined){
-          setValidate(true);
-          <Veiculoscadastrados validate={validate}/>
-        }
-        if(data.dbveiculos=== undefined || data.dbveiculos === null) {
-          handleSubmit();
+          setData(response.data);
         }
         console.log(data.dbveiculos.veiculos);
       })
