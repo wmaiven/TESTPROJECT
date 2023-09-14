@@ -15,7 +15,8 @@ const Caixa = () => {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Make the Axios POST request
+        
+        // Fazer a requisição POST para o backend com os dados do veículo
         axios.post('http://localhost:5172/caixa/post', {valorCompra, valorEntregue})
             .then(response => {
                 if (response.data === undefined || response.data === null) {
