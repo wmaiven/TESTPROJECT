@@ -6,6 +6,7 @@ const ConsultaCep = () => {
     const[cep3, setCep3] = useState('');
     const[cep4, setCep4] = useState('');
     const[cep5, setCep5] = useState('');
+    const[data, setData] = useState(null);
 
     const handleCep1 = (event) => {
         setCep1(event.target.value);
@@ -30,7 +31,7 @@ const ConsultaCep = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // Make the Axios POST request
-        axios.post('http://localhost:5172//ConsultaCep/post', {
+        axios.post('http://localhost:5172/ConsultaCep/post', {
             cep1,
             cep2,
             cep3,
